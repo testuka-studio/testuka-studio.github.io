@@ -52,20 +52,33 @@
                 <li><strong>Prohibición Absoluta de Transmisión:</strong> Photo Match <strong>no dispone de permiso de acceso a Internet</strong> (<code>android.permission.INTERNET</code> no está declarado en el manifiesto). Es físicamente imposible que la app envíe tus fotos a servidores externos o terceros.</li>
             </ul>
 
-            <h2>2. Permisos del Sistema Operativo</h2>
+            <h2>2. Permisos del Sistema Operativo y Acceso a la Galería</h2>
+            <p>
+                Existe una diferencia fundamental en Android entre solicitar acceso total a los archivos del dispositivo y utilizar el selector seguro del sistema:
+            </p>
             <table class="policy-table">
                 <thead>
                     <tr>
-                        <th>Permiso Solicitado</th>
-                        <th>Finalidad Técnica</th>
-                        <th>¿Transmite Datos?</th>
+                        <th>Mecanismo / Permiso</th>
+                        <th>Estado en Photo Match</th>
+                        <th>Cómo funciona / Impacto en tu Privacidad</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Ninguno</strong></td>
-                        <td>La app no solicita permisos especiales ni permisos de lectura de almacenamiento global.</td>
-                        <td><strong>No</strong> (0 bytes enviados).</td>
+                        <td><strong>Permiso Global de Fotos</strong><br><code>READ_MEDIA_IMAGES</code> o <code>READ_EXTERNAL_STORAGE</code></td>
+                        <td><strong style="color: #4ADE80;">NO SOLICITADO</strong></td>
+                        <td>La app <strong>no tiene permiso</strong> para escanear, leer ni indexar tu galería en segundo plano. Nunca verá tus fotos privadas ni sabrá qué imágenes tienes en tu dispositivo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Selector de Fotos Nativo de Android</strong><br><code>PickMultipleVisualMedia</code> (Photo Picker)</td>
+                        <td><strong style="color: var(--gold);">CONTROLADO POR EL USUARIO</strong></td>
+                        <td>Cuando pulsas para añadir fotos, se abre una ventana segura del propio sistema operativo Android. Eres tú quien elige manualmente qué 6 o 12 fotos quieres usar para jugar. Android solo entrega a Photo Match una autorización temporal de lectura <strong>estrictamente acotada a esas fotos seleccionadas</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Acceso a Internet</strong><br><code>android.permission.INTERNET</code></td>
+                        <td><strong style="color: #4ADE80;">NO SOLICITADO</strong></td>
+                        <td>Incapaz de transmitir datos. Las fotos elegidas se procesan en la memoria local y nunca abandonan el dispositivo.</td>
                     </tr>
                 </tbody>
             </table>
