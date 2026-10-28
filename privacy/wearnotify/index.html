@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - Wear Notify | Testuka Studio 🐢🛡️</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" type="image/jpeg" href="../../assets/testuka_logo.jpg">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="/" class="brand-link">
+                <img src="../../assets/testuka_logo.jpg" alt="Testuka Studio Logo" class="brand-logo">
+                <span class="brand-title">TESTUKA STUDIO</span>
+            </a>
+            <nav class="nav-links">
+                <a href="/">Inicio</a>
+                <a href="/privacy/">Todas las Políticas</a>
+                <a href="/legal/">Aviso Legal</a>
+                <a href="mailto:testuka.studio@gmail.com">Soporte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container policy-page">
+        <div class="policy-header">
+            <span class="policy-tag">Política de Privacidad Oficial</span>
+            <h1 class="policy-title">Wear Notify</h1>
+            <p class="policy-meta">
+                <strong>Identificador de paquete:</strong> <code>dev.testuka.wearnotify</code> &bull; 
+                <strong>Versión:</strong> 1.0 &bull; 
+                <strong>Fecha de entrada en vigor:</strong> Octubre de 2026
+            </p>
+        </div>
+
+        <article class="policy-content">
+            <div class="highlight-box">
+                <p>
+                    <strong>Declaración Expresa de Seguridad:</strong> Wear Notify procesa las notificaciones de manera estrictamente local y efímera. La aplicación <strong>NO dispone de permiso de acceso a Internet</strong> (<code>android.permission.INTERNET</code> no está presente). Ningún mensaje, remitente o contenido de notificación es transmitido a servidores remotos ni almacenado externamente.
+                </p>
+            </div>
+
+            <h2>1. Finalidad del Servicio y Tratamiento de Notificaciones</h2>
+            <p>
+                <strong>Wear Notify</strong> es una utilidad diseñada para sincronizar de forma eficiente y en tiempo real las notificaciones entrantes de tu teléfono móvil con tu reloj inteligente WearOS.
+            </p>
+            <ul>
+                <li><strong>Servicio de Escucha de Notificaciones (Notification Listener Service):</strong> Para cumplir su función nuclear, la app requiere acceso al servicio nativo de escucha de notificaciones de Android (<code>android.permission.BIND_NOTIFICATION_LISTENER_SERVICE</code>).</li>
+                <li><strong>Procesamiento Efímero en Memoria:</strong> Cuando se recibe una notificación, la app lee el título, texto e icono en memoria volátil exclusivamente para empaquetarlo y enviarlo al reloj emparejado.</li>
+                <li><strong>Canal Seguro Local (Google Play Services Wearable API):</strong> La retransmisión entre el teléfono y el reloj se realiza exclusivamente mediante los canales locales cifrados de Google Play Services (Bluetooth y Wi-Fi local directo entre dispositivos vinculados).</li>
+                <li><strong>Cero Registro Persistente:</strong> Las notificaciones no se guardan en bases de datos remotas ni en el historial del teléfono una vez retransmitidas o descartadas.</li>
+            </ul>
+
+            <h2>2. Declaración Detallada de Permisos del Sistema</h2>
+            <table class="policy-table">
+                <thead>
+                    <tr>
+                        <th>Permiso Solicitado</th>
+                        <th>Finalidad Técnica Estricta</th>
+                        <th>Nivel de Acceso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td>
+                        <td>Detectar la llegada de notificaciones para reenviarlas a la pantalla del reloj.</td>
+                        <td>Local / Efímero</td>
+                    </tr>
+                    <tr>
+                        <td><code>QUERY_ALL_PACKAGES</code></td>
+                        <td>Permitir al usuario seleccionar en los ajustes de qué aplicaciones instaladas desea o no recibir avisos en su reloj.</td>
+                        <td>Solo lectura de nombres de paquetes locales</td>
+                    </tr>
+                    <tr>
+                        <td><code>RECEIVE_BOOT_COMPLETED</code></td>
+                        <td>Reanudar automáticamente el puente de sincronización cuando el usuario reinicia el dispositivo.</td>
+                        <td>Sistema operativo</td>
+                    </tr>
+                    <tr>
+                        <td><code>WAKE_LOCK</code></td>
+                        <td>Mantener brevemente la CPU activa unos milisegundos para procesar la vibración y visualización de la alerta en el reloj.</td>
+                        <td>Gestión de energía local</td>
+                    </tr>
+                    <tr>
+                        <td><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code></td>
+                        <td>Evitar que el sistema cierre el servicio en segundo plano cuando la pantalla está apagada.</td>
+                        <td>Ajuste de sistema</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>3. Ausencia Total de Conexión a Internet</h2>
+            <p>
+                A diferencia de otras soluciones en la nube, Wear Notify no implementa servidores, no registra cuentas de usuario, no solicita credenciales y carece del permiso <code>android.permission.INTERNET</code>. Por diseño arquitectónico, es imposible que se filtre ningún dato personal a internet.
+            </p>
+
+            <h2>4. Cero Publicidad y Cero Analítica de Terceros</h2>
+            <p>
+                Wear Notify está completamente libre de librerías publicitarias, SDKs de rastreo comercial o herramientas de perfilado de datos.
+            </p>
+
+            <h2>5. Eliminación de Datos y Revocación</h2>
+            <p>
+                El usuario puede revocar el acceso a las notificaciones en cualquier instante desde los Ajustes de Android > <em>Acceso a notificaciones</em>. Al desinstalar la app, se elimina cualquier preferencia de configuración almacenada localmente.
+            </p>
+
+            <h2>6. Contacto y Soporte</h2>
+            <p>
+                Para cualquier consulta técnica o aclaración de seguridad:  
+                <strong>Correo oficial:</strong> <a href="mailto:testuka.studio@gmail.com" style="color: var(--gold);">testuka.studio@gmail.com</a>
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/">Inicio</a>
+                <a href="/privacy/">Políticas de Privacidad</a>
+                <a href="/legal/">Aviso Legal</a>
+                <a href="mailto:testuka.studio@gmail.com">Soporte</a>
+            </div>
+            <p class="footer-copy">© 2026 Testuka Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
